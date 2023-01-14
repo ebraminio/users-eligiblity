@@ -30,7 +30,7 @@ WHERE actor_name IN ('" . implode("', '", $usernames) . "')
 ");
     $actorIds = array_values($actors);
     $firstEdits = fetch_query($db, "
-SELECT rev_actor, MIN(rev_timestamp)
+SELECT rev_actor, UNIX_TIMESTAMP(MIN(rev_timestamp)) * 1000
 FROM revision_userindex
 WHERE rev_actor IN (" . implode(", ", $actorIds) . ")
 GROUP BY rev_actor
