@@ -46,7 +46,7 @@ GROUP BY rev_actor
 
     $result = [];
     foreach ($actors as $user => $id) {
-        $result[$user] = ['firstEdit' => $firstEdits[$id], 'sixMonthsEdits' => $sixMonthsEdits[$id]];
+        $result[$user] = ['firstEdit' => +$firstEdits[$id], 'sixMonthsEdits' => +$sixMonthsEdits[$id]];
     }
 
     return $result;
